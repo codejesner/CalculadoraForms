@@ -59,16 +59,14 @@ namespace CalculadoraForms
         }
         private void btnResultado_Click(object sender, EventArgs e)
         {
-            string expressao = txtTela.Text;
+            string expressao = txtTela.Text.ToString();
 
-            for (int i = 0; i < expressao.Length; i++)
-            {
-                Calculo = expressao[i];
-            }
-
-            txtTela.Text = Calculo.ToString();
+            DataTable dt = new DataTable();
+            var v = dt.Compute(expressao, "");
 
 
+
+            txtTela.Text = v.ToString();
 
         }
     }
