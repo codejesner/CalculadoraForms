@@ -26,6 +26,13 @@ namespace CalculadoraForms
             {
                 txtTela.Font = new Font(txtTela.Font.FontFamily, 17);
             }
+            if (txtTela.Text[txtTela.Text.Length - 1].ToString() == "/".ToString())
+            {
+                btn0.Enabled = false;
+            } else
+            {
+                btn0.Enabled = true;
+            }
         }
         private void numero_Click(object sender, EventArgs e)
         {
