@@ -62,13 +62,21 @@ namespace CalculadoraForms
             DataTable dt = new DataTable();
             string expressao = txtTela.Text.ToString().Replace(",", ".");
             
-            if (expressao[expressao.Length -1].ToString() == "-" || expressao[expressao.Length -1].ToString() == "+" || expressao[expressao.Length-1].ToString() == "*" || expressao[expressao.Length-1].ToString() == "/")
+            if (txtTela.Text.Length == 0) 
             {
-                MessageBox.Show("Insira um valor para calcular");
-            } else
+                MessageBox.Show("Você precisa inserir valores");
+            } 
+            else
             {
-                var v = dt.Compute(expressao, "");
-                txtTela.Text = v.ToString();
+                if (expressao[expressao.Length - 1].ToString() == "-" || expressao[expressao.Length - 1].ToString() == "+" || expressao[expressao.Length - 1].ToString() == "*" || expressao[expressao.Length - 1].ToString() == "/")
+                {
+                    MessageBox.Show("Insira um valor para calcular");
+                }
+                else
+                {
+                    var v = dt.Compute(expressao, "");
+                    txtTela.Text = v.ToString();
+                }
             }
 
 
